@@ -1,4 +1,4 @@
-# profile-app
+# Personal Profile - Pushkar Patil
 
 ## Project setup
 ```
