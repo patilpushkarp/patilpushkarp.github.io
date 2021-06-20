@@ -1,4 +1,4 @@
-# Personal Profile - Pushkar Patil
+# Personal Website - Pushkar Patil
 
 ## Project setup
 ```
