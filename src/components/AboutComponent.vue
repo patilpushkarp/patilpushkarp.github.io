@@ -64,6 +64,8 @@
       </div>
     </div>
   </section>
+
+  <!-- Footer -->
   <the-footer></the-footer>
 </template>
 
