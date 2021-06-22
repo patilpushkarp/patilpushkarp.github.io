@@ -1,7 +1,7 @@
 <template>
   <div class="container-fluid navigate">
     <router-link to="/home"><h1>HOME</h1></router-link>
-    <h1>ABOUT</h1>
+    <router-link to="/about"><h1>ABOUT</h1></router-link>
     <h1>PORTFOLIO</h1>
     <h1>CONTACT</h1>
   </div>

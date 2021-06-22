@@ -11,7 +11,19 @@
         </div>
       </div>
   </section>
+  <the-footer></the-footer>
 </template>
+
+<script>
+import TheFooter from "./commons/TheFooter.vue"
+
+export default {
+  components: {
+    TheFooter
+  }
+};
+</script>
+
 
 <style scoped>
 .me {

@@ -1,0 +1,59 @@
+{
+    "work_experience": [
+        {
+            "id": 1,
+            "company": "Deloitte USI Consulting Private Ltd.",
+            "experience": [
+                {
+                    "id": 1.1,
+                    "post": "Engineer 1",
+                    "time_period": "June 2020 - Present",
+                    "responsibilities": [
+                        "Engaged as a data engineer primarily focused on extraction of data from raw PDF and XML files and creation of preprocessing modules for pharmacovigilance product of the company"
+                    ]
+                },
+                {
+                    "id": 1.2,
+                    "post": "Analyst",
+                    "time_period": "August 2018 - May 2020",
+                    "responsibilities": [
+                        "Engaged as a data engineer for data science module of company's pharmacovigilance product primarily focusing on development of software architecture of data science module pipeline, integration of data science module with other components of the product, web development, improving code performance",
+                        "Worked as data scientist for Value Based Contracts project primarily focusing on data mining activities",
+                        "Worked as data engineer for Synthetic Control Arm application primarily focused on developing functionalities for missing value imputations, outlier detection, model execution and web development",
+                        "Contributed in the POC for AWS Data Governance with regards to ETL application",
+                        "Contributed in the development of ETL application and developed a full stack application for automated testing",
+                        "Responsible for web development and backend code which includes preprocessing, model utilization and postprocessing for a data science application regarding database components relationship",
+                        "Engaged in fixing bugs on Angular JS along with integration of R code with Java",
+                        "Created python scripts for automating tasks such as XML parsing, renaming files based on certain mappings, updating trackers, automated SQL based testing etc."
+                    ]
+                }
+            ]
+        }
+    ],
+    "education": [
+        {
+            "id": 1,
+            "school": "Veermata Jijabai Technological Institute",
+            "time_period": "2014-2018",
+            "course": "Bachelor of Technology - Electronics Engineering"
+        },
+        {
+            "id": 2,
+            "school": "Nowrosjee Wadia College",
+            "time_period": "2011-2013",
+            "course": "Science"
+        },
+        {
+            "id": 3,
+            "school": "Global Indian International School",
+            "time_period": "2010-2011",
+            "course": "Science"
+        }
+    ],
+    "tools": {
+        "Python": "@/assets/tools/python.svg",
+        "Git": "@/assets/tools/git.png",
+        "Flask": "@/assets/tools/flask.png",
+        "Amazon Web Services": "@/assets/tools/aws.svg" 
+    }
+}

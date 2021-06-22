@@ -4,6 +4,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 import App from './App.vue'
 import HomeComponent from './components/HomeComponent.vue'
 import TheNavigation from './components/commons/TheNavigation.vue'
+import AboutComponent from  './components/AboutComponent.vue'
 
 const router = createRouter({
     history: createWebHistory(),
@@ -19,6 +20,10 @@ const router = createRouter({
         {
             path: '/navigation',
             component: TheNavigation
+        },
+        {
+            path: '/about',
+            component: AboutComponent
         }
     ]
 });

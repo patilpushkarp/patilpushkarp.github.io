@@ -3,18 +3,15 @@
   <main>
     <router-view></router-view>
   </main>
-  <the-footer></the-footer>
 </template>
 
 <script>
 import NavigationHeader from "./components/commons/NavigationHeader.vue";
-import TheFooter from "./components/commons/TheFooter.vue"
 
 export default {
   name: "App",
   components: {
-    NavigationHeader,
-    TheFooter
+    NavigationHeader
   },
 };
 </script>
