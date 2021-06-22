@@ -35,25 +35,40 @@
             "id": 1,
             "school": "Veermata Jijabai Technological Institute",
             "time_period": "2014-2018",
-            "course": "Bachelor of Technology - Electronics Engineering"
+            "course": "Bachelor of Technology - Electronics Engineering",
+            "marks": "CGPA : 7.78"
         },
         {
             "id": 2,
             "school": "Nowrosjee Wadia College",
             "time_period": "2011-2013",
-            "course": "Science"
+            "course": "Science",
+            "marks": "Percentage: 82.5"
         },
         {
             "id": 3,
             "school": "Global Indian International School",
             "time_period": "2010-2011",
-            "course": "Science"
+            "course": "Science",
+            "marks": "Percentage: 92.5"
         }
     ],
-    "tools": {
-        "Python": "@/assets/tools/python.svg",
-        "Git": "@/assets/tools/git.png",
-        "Flask": "@/assets/tools/flask.png",
-        "Amazon Web Services": "@/assets/tools/aws.svg" 
-    }
+    "tools": [
+        {
+            "tool": "Python",
+            "img": "python.svg"
+        },
+        {
+            "tool": "Git",
+            "img": "git.png"
+        },
+        {
+            "tool": "Flask",
+            "img": "flask.png"
+        },
+        {
+            "tool":"Amazon Web Services",
+            "img": "aws.svg" 
+        }
+    ]
 }

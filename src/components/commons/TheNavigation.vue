@@ -2,7 +2,6 @@
   <div class="container-fluid navigate">
     <router-link to="/home"><h1>HOME</h1></router-link>
     <router-link to="/about"><h1>ABOUT</h1></router-link>
-    <h1>PORTFOLIO</h1>
     <h1>CONTACT</h1>
   </div>
 </template>
@@ -14,13 +13,17 @@
 }
 
 h1{
-    text-decoration: none;
-    color: #aac9ee;
+    /* color: #aac9ee; */
     font-size: 4rem;
-    padding: 3% 0%;
+    padding: 5% 0%;
 }
 
 a{
+  color: #aac9ee;
     text-decoration: none;
+}
+
+a:hover{
+  color: #e6005c;
 }
 </style>
