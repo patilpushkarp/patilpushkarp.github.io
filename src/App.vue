@@ -1,28 +1,27 @@
 <template>
-  <navigation-header></navigation-header>
   <main>
     <router-view></router-view>
   </main>
 </template>
 
 <script>
-import NavigationHeader from "./components/commons/NavigationHeader.vue";
 
 export default {
   name: "App",
   components: {
-    NavigationHeader
   },
 };
 </script>
 
 <style>
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
+html, body {
+  font-family: 'Montserrat', sans-serif;
+  height: 100%;
+}
+
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  /* margin-top: 60px; */
+  font-family: 'Montserrat', sans-serif;
 }
 </style>
