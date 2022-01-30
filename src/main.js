@@ -3,6 +3,10 @@ import { createRouter, createWebHistory } from 'vue-router'
 
 import App from './App.vue'
 import HomeComponent from './components/base/HomeComponent.vue'
+import AboutComponent from './components/base/AboutComponent.vue'
+import WorkComponent from './components/base/WorkComponent.vue'
+import ScribbleComponent from './components/base/ScribbleComponent.vue'
+import PlaygroundComponent from './components/base/PlaygroundComponent.vue'
 
 const router = createRouter({
     history: createWebHistory(),
@@ -14,6 +18,22 @@ const router = createRouter({
         {
             path: '/home',
             component: HomeComponent
+        },
+        {
+            path: '/about',
+            component: AboutComponent
+        },
+        {
+            path: '/work',
+            component: WorkComponent
+        },
+        {
+            path: '/scribble',
+            component: ScribbleComponent
+        },
+        {
+            path: '/playground',
+            component: PlaygroundComponent
         }
     ]
 });
