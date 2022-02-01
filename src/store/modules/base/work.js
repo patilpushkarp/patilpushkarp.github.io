@@ -25,7 +25,7 @@ export default {
                 }
             ],
             tools: ["Python", "Amazon Web Services", "Git", "Jenkins", "SQL", "Docker", "Kubernetes", "Vue", "Jira", "HTML/CSS", "Excel"],
-            skills: ["Data Engineering", "Product Development", "Data Anlystics", "Exploratory Data Anlysiis", "Machine Learning"]
+            skills: ["Data Engineering", "Product Development", "Web Development", "Causal Inference", "Exploratory Data Anlysis", "Predictive Analytics"]
         }
     },
     getters: {
