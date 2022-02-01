@@ -6,6 +6,7 @@
     <main>
       <router-view></router-view>
     </main>
+    <the-footer v-if="$route.path==='/home'?false:true"></the-footer>
   </div>
   <div v-else>
     <the-navigation :navigation-status="navigationStatus" @toggle-status="toggleStatus"></the-navigation>
@@ -14,11 +15,13 @@
 
 <script>
 import TheNavigation from "./components/base/TheNavigation.vue";
+import TheFooter from  "./components/base/TheFooter.vue";
 
 export default {
   name: "App",
   components: {
     TheNavigation,
+    TheFooter
   },
   data() {
     return {
@@ -26,7 +29,14 @@ export default {
     };
   },
   computed:{
-
+    checkHome(){
+      console.log(this.$route.path);
+      if(this.$route.path === "/"){
+        return false;
+      }else{
+        return true;
+      }
+    }
   },
   methods: {
     openNav() {
