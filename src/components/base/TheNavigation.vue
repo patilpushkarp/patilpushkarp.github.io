@@ -32,9 +32,6 @@
             <li>
               <router-link to='/scribble' @click="closeNav">Scribble</router-link>
             </li>
-            <li>
-              <router-link to='/playground' @click="closeNav">Playground</router-link>
-            </li>
           </ul>
         </div>
       </div>

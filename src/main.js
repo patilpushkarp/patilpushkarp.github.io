@@ -7,7 +7,6 @@ import HomeComponent from './components/base/HomeComponent.vue'
 import AboutComponent from './components/base/AboutComponent.vue'
 import WorkComponent from './components/base/WorkComponent.vue'
 import ScribbleComponent from './components/base/ScribbleComponent.vue'
-import PlaygroundComponent from './components/base/PlaygroundComponent.vue'
 
 const router = createRouter({
     history: createWebHistory(),
@@ -31,10 +30,6 @@ const router = createRouter({
         {
             path: '/scribble',
             component: ScribbleComponent
-        },
-        {
-            path: '/playground',
-            component: PlaygroundComponent
         }
     ]
 });

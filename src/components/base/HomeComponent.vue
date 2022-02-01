@@ -6,10 +6,9 @@
     </div>
     <div class="navigation-tabs">
       <ul>
-        <li>About</li>
-        <li>Work</li>
-        <li>Scribble</li>
-        <li>Playground</li>
+        <li><router-link to='/about' @click="closeNav">About</router-link></li>
+        <li><router-link to='/work' @click="closeNav">Work</router-link></li>
+        <li><router-link to='/scribble' @click="closeNav">Scribble</router-link></li>
       </ul>
     </div>
   </section>
@@ -47,6 +46,10 @@ ul{
 }
 li{
   font-size: 1.5vw;
+}
+li a {
+  color: black;
+  text-decoration: none;
 }
 
 </style>

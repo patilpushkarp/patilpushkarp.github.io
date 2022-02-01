@@ -23,7 +23,7 @@
   background-color: #f7f8fb;
 }
 .row{
-    padding: 12% 5%;
+    padding: 7% 5%;
 }
 .left-col{
     margin-top: 3%;
