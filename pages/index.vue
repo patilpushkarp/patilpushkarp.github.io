@@ -2,18 +2,31 @@
     <div class="main">
         <div class="menu-list">
             <ul>
-                <div class="intro">Currently a Software Developer but Technology Consultant in the making. </div>
-                <li><button class="menu-button">About</button></li>
+                <div class="intro">{{ myData.intro }}</div>
+                <li><NuxtLink href="/about"><button class="menu-button">About</button></NuxtLink></li>
                 <li><button class="menu-button">Work</button></li>
                 <li><button class="menu-button">Scribbles</button></li>
             </ul>
         </div>
         <div class="greetings-name">
-            <div class="greetings inter-font-500">Namaskar, I am </div>
-            <div class="name inter-font-900">PUSHKAR PATIL</div>
+            <div class="greetings inter-font-500">Namaskar 🙏🏼 (Hello, there 👋🏼), I am </div>
+            <div class="name inter-font-900">{{ myData.name }}</div>
         </div>
     </div>
 </template>
+
+<script>
+import aboutData from "./../data/about.json"
+
+export default{
+    data(){
+        return {
+            myData: aboutData
+        };
+    }
+}
+
+</script>
 
 <style scoped>
 .main {
@@ -23,7 +36,7 @@
 .intro {
     font-size: 2vw;
     margin: 2%;
-    width: 50%;
+    width: 60%;
     float: right;
 }
 
@@ -37,7 +50,7 @@
 }
 
 .greetings {
-    font-size: 5vw;
+    font-size: 3vw;
     margin: 2%;
 }
 
@@ -51,8 +64,7 @@
     height: 50%;
     display: block;
     margin-left: auto;
-    /* margin-right: 5%; */
-    padding-top: 1%;
+    padding-top: 3%;
     position: relative;
     z-index: 0;
     margin-bottom: -3%;
