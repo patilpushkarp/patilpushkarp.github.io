@@ -1,0 +1,13 @@
+{
+    "Technology Business Management": [
+        {
+            "name": "Article 1",
+            "file_name": "example.md",
+            "link": "/scribbles/example"
+        },
+        {
+            "name": "Article 3",
+            "file_name": "article3.md"
+        }
+    ]
+}

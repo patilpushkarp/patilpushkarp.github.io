@@ -9,10 +9,13 @@
 
 <style>
 body{
+  margin: 0;
+  height: 100%;
   font-family: "Onest", sans-serif;
     font-optical-sizing: auto;
     font-weight: 200;
     font-style: normal;
+    overflow-x: hidden;
 }
 
 /* Fonts */
@@ -35,5 +38,14 @@ body{
     font-optical-sizing: auto;
     font-weight: 900;
     font-style: normal;
+}
+
+.text {
+    background: radial-gradient(farthest-corner at 20% 20%,
+            #041B2d 30%,
+            #004E9A 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 </style>

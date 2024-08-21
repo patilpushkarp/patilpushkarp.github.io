@@ -3,14 +3,19 @@
         <div class="menu-list">
             <ul>
                 <div class="intro">{{ myData.intro }}</div>
-                <li><NuxtLink href="/about"><button class="menu-button">About</button></NuxtLink></li>
-                <li><button class="menu-button">Work</button></li>
-                <li><button class="menu-button">Scribbles</button></li>
+                <li>
+                    <NuxtLink to="/about"><button class="menu-button">About</button></NuxtLink>
+                </li>
+                <li>
+                    <NuxtLink to="/scribbles"><button class="menu-button">Scribbles</button></NuxtLink>
+                </li>
             </ul>
         </div>
         <div class="greetings-name">
             <div class="greetings inter-font-500">Namaskar 🙏🏼 (Hello, there 👋🏼), I am </div>
-            <div class="name inter-font-900">{{ myData.name }}</div>
+            <div class="name inter-font-900">
+                <p class="text">{{ myData.name }}</p>
+            </div>
         </div>
     </div>
 </template>
@@ -18,8 +23,12 @@
 <script>
 import aboutData from "./../data/about.json"
 
-export default{
-    data(){
+definePageMeta({
+    layout: "home"
+})
+
+export default {
+    data() {
         return {
             myData: aboutData
         };
@@ -71,28 +80,27 @@ export default{
 }
 
 ul {
-    /* width: 60%; */
     height: 100%;
     display: flex;
     flex-flow: column nowrap;
     justify-content: flex-end;
     align-items: flex-end;
     margin-right: 5%;
-    /* margin-bottom: -20%; */
 }
 
-li{
+li {
     list-style: none;
     margin-right: 7%;
 }
 
 .menu-button {
-    background-color: black;
+    background-image: linear-gradient(to right bottom, #004E9A, #EA4492);
     color: white;
     padding: 5%;
     margin: 7% 0% 7% auto;
     width: 30vb;
     font-size: 1.2vw;
     border-radius: 30px;
+    border: none;
 }
 </style>

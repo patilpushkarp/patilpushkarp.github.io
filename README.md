@@ -10,3 +10,12 @@ This website is created using the following tech stack -
 ### Nuxt
 
 1. Nuxt Google Fonts
+
+### Color Pallete
+
+1. #041B2d
+2. #004E9A
+3. #428CD4
+4. #FF9CDA
+5. #EA4492
+
