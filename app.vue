@@ -43,7 +43,7 @@ body{
 .text {
     background: radial-gradient(farthest-corner at 20% 20%,
             #041B2d 30%,
-            #004E9A 100%);
+            #004E9A 80%);
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;

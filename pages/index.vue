@@ -55,7 +55,7 @@ export default {
     flex-flow: column;
     justify-content: flex-end;
     position: relative;
-    z-index: 1;
+    z-index: 0;
 }
 
 .greetings {
@@ -75,7 +75,7 @@ export default {
     margin-left: auto;
     padding-top: 3%;
     position: relative;
-    z-index: 0;
+    z-index: 1;
     margin-bottom: -3%;
 }
 
@@ -100,7 +100,8 @@ li {
     margin: 7% 0% 7% auto;
     width: 30vb;
     font-size: 1.2vw;
-    border-radius: 30px;
+    border-radius: 40px;
     border: none;
+    font-size: 1.5vw;
 }
 </style>

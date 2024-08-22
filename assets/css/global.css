@@ -1,0 +1,42 @@
+.page-content {
+    width: 80%;
+    margin: 5% auto;
+    font-size: 1.2vw;
+}
+
+.page-content h2,
+.page-content h3,
+.page-content h4,
+.page-content h5 {
+    padding: 5% 5%;
+}
+
+.page-content h1 {
+    font-size: 5vw;
+    padding: 20% 0%;
+    font-weight: 900;
+    background: radial-gradient(farthest-corner at 20% 20%,
+            #041B2d 20%,
+            #004E9A 60%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.page-content h2{
+    font-size: 3vw;
+    font-weight: 700;
+}
+
+.page-content h2 a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.page-content p{
+    padding: 0% 10%;
+}
+
+.page-content ol{
+    padding: 0% 10%;
+}

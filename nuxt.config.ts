@@ -29,7 +29,7 @@ export default defineNuxtConfig({
   },
   compatibilityDate: '2024-04-03',
   devtools: { enabled: true },
-  css: ['bootstrap/dist/css/bootstrap.min.css', '@fortawesome/fontawesome-svg-core/styles.css'],
+  css: ['bootstrap/dist/css/bootstrap.min.css', '@fortawesome/fontawesome-svg-core/styles.css', '~/assets/css/global.css'],
   modules: ["@nuxtjs/google-fonts", "@nuxt/content"],
   plugins: ['~/plugins/bootstrap.client.ts'],
   googleFonts: {

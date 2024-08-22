@@ -1,20 +1,20 @@
 <template>
     <div class="scribble-wrapper">
-        <p class="name">Scribbles</p>
-    </div>
-
-    <div class="scribbles">
-        <div v-for="(scribble_topic_list, scribble_topic, index) in scribbles" :key=index class="scribbles-topic">
-            <h1>{{ scribble_topic }}</h1>
-            <hr>
-            <div v-for="(value, key, indexlower) in scribble_topic_list" :key=indexlower class="scribbles-list">
-                <NuxtLink :to="value['link']"><p class="scribbles-heading">{{ value["name"] }}</p></NuxtLink>
+        <p class="name text">Scribbles</p>
+        <div class="scribbles">
+            <div v-for="(scribble_topic_list, scribble_topic, index) in scribbles" :key=index class="scribbles-topic">
+                <h1 class="topic-heading">{{ scribble_topic }}</h1>
                 <hr>
+                <div v-for="(value, key, indexlower) in scribble_topic_list" :key=indexlower class="scribbles-list">
+                    <NuxtLink class="scribbles-heading-link" :to="value['link']">
+                        <p class="scribbles-heading">{{ value["name"] }}</p>
+                    </NuxtLink>
+                    <hr>
+                </div>
             </div>
         </div>
     </div>
 
-    <!-- <ContentDoc path="example" /> -->
 </template>
 
 <script>
@@ -31,7 +31,8 @@ export default {
 
 <style scoped>
 .scribble-wrapper {
-    height: 35vh;
+    min-height: 100vh;
+    /* height: 35vh; */
 }
 
 .name {
@@ -51,9 +52,19 @@ export default {
     width: 80%;
 }
 
+.topic-heading {
+    font-size: 3vw;
+    font-weight: 700;
+}
+
+.scribbles-heading-link {
+    text-decoration: none;
+    color: inherit;
+}
+
 .scribbles-heading {
-    padding: 1% 3%;
     font-size: 1.5vw;
     font-weight: 400;
+    padding: 1% 3%;
 }
 </style>
