@@ -2,7 +2,7 @@
 
     <div class="brief-intro">
         <p class="greeting">Hey, I am </p>
-        <p class="name text">{{ myData.name }}</p>
+        <p class="name text2">{{ myData.name }}</p>
         <div class="brief">{{ myData.brief }}</div>
     </div>
 

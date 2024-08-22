@@ -1,9 +1,9 @@
 <template>
     <div class="scribble-wrapper">
-        <p class="name text">Scribbles</p>
+        <p class="name text2">Scribbles</p>
         <div class="scribbles">
             <div v-for="(scribble_topic_list, scribble_topic, index) in scribbles" :key=index class="scribbles-topic">
-                <h1 class="topic-heading">{{ scribble_topic }}</h1>
+                <h1 class="topic-heading text">{{ scribble_topic }}</h1>
                 <hr>
                 <div v-for="(value, key, indexlower) in scribble_topic_list" :key=indexlower class="scribbles-list">
                     <NuxtLink class="scribbles-heading-link" :to="value['link']">
