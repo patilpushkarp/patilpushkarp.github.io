@@ -1,0 +1,179 @@
+{
+    "basics": {
+        "name": "Pushkar Patil",
+        "label": "Technology Strategy Consultant",
+        "email": "patilpushkarp@gmail.com",
+        "phone": "+917506606405",
+        "summary": "Technology Strategy Consultant capable of architecting and automating high-value data ecosystems that bridge the gap between technical execution and business strategy. Proven ability to manage ~$100M in monthly IT spend and drive multi-million dollar cost savings through cloud optimization and Gen AI innovation. Expert in leveraging Python, AWS, and IBM Apptio to streamline complex financial workflows, with a strong aptitude for building custom software solutions, from microservices to full-stack applications, that accelerate operational efficiency.",
+        "location": {
+            "city": "Pune",
+            "region": "Maharashtra",
+            "country": "India"
+        },
+        "profiles": [
+            {
+                "network": "LinkedIn",
+                "username": "patilpushkarp",
+                "url": "https://www.linkedin.com/in/patilpushkarp/"
+            },
+            {
+                "network": "Github",
+                "username": "patilpushkarp",
+                "url": "https://github.com/patilpushkarp"
+            }
+        ],
+        "stats": {
+            "age": "30",
+            "experience": "6",
+            "projects": "8",
+            "industries": "4"
+        }
+    },
+    "work": [
+        {
+            "company": "Accenture Strategy",
+            "position": "Technology Strategy Consultant",
+            "startDate": "2023-07",
+            "endDate": "Present",
+            "location": "Pune",
+            "categories": [
+                {
+                    "name": "Platform Engineering",
+                    "items": [
+                        "Built robust Databricks pipelines using APIs to automate data integration from various applications to Apptio.",
+                        "Led the automation of financial data ingestion from SAP, GCP, and Azure into IBM Apptio, saving 80% resource time."
+                    ]
+                },
+                {
+                    "name": "Strategy & FinOps",
+                    "items": [
+                        "Managed ~$100M monthly IT spend, ensuring seamless IT Financial Management.",
+                        "Established cost transparency across 64 applications (~$100M/month), enabling strategic resource allocation.",
+                        "Developed end-to-end persona-based financial reports driving $5M in cost savings for key CIO projects."
+                    ]
+                },
+                {
+                    "name": "Gen AI & Innovation",
+                    "items": [
+                        "Developed a Gen AI (Copilot) Proof of Concept that automated platform evaluations, reducing technical debt.",
+                        "Implemented comprehensive data quality testing frameworks achieving an 80% reduction in manual testing time."
+                    ]
+                },
+                {
+                    "name": "Data Operations",
+                    "items": [
+                        "Designed and optimized ELT pipelines to transform data across geographies, reducing transformation time by 66%."
+                    ]
+                }
+            ]
+        },
+        {
+            "company": "Deloitte USI",
+            "position": "Engineer-I/Consultant",
+            "startDate": "2018-08",
+            "endDate": "2022-01",
+            "location": "Mumbai",
+            "categories": [
+                {
+                    "name": "Data Engineering",
+                    "items": [
+                        "Created ETL pipelines for Pharmacovigilance documents, saving 66% processing time and 50% operational costs.",
+                        "Mined and wrangled massive medical insurance datasets in AWS for Value-Based Contracts, saving clients $20 Million.",
+                        "Automated semi-structured file conversion to enhance ETL application compatibility."
+                    ]
+                },
+                {
+                    "name": "Cloud Architecture",
+                    "items": [
+                        "Assisted in creating a Data Science Software Architecture that reduced cloud infra costs by 50% and improved revenue by 3x.",
+                        "Analyzed AWS Lakehouse, Glue, and Blueprints vs self-developed EC2 pipelines for Life Sciences industry insights."
+                    ]
+                },
+                {
+                    "name": "Development",
+                    "items": [
+                        "Constructed a reusable Python library for Pharmacovigilance documents, cutting future development time by 80%.",
+                        "Created microservices dedicated to Exploratory Data Analysis (EDA) and causal inference."
+                    ]
+                },
+                {
+                    "name": "Automation",
+                    "items": [
+                        "Developed an automatic testing web application that reduced testing and report generation time by 75%."
+                    ]
+                }
+            ]
+        }
+    ],
+    "projects": [
+        {
+            "name": "Madaatih",
+            "description": "A minimalist webapp for unfiltered thoughts. Developed using Nuxt.js and Supabase for capturing and sharing unfiltered thoughts.",
+            "startDate": "2025-11",
+            "endDate": "Present"
+        },
+        {
+            "name": "Trading bot for Options trading",
+            "description": "Created a system using python and postgres for trading options using the Zerodha API with attention to fallback mechanisms and best practices.",
+            "startDate": "2023-03",
+            "endDate": "2023-07"
+        },
+        {
+            "name": "Social Media Analysis for Banks and NBFCs",
+            "description": "Performed sentiment analysis on Twitter posts regarding banking services using Python and Twitter API.",
+            "startDate": "2023-01",
+            "endDate": "2023-04"
+        }
+    ],
+    "education": [
+        {
+            "institution": "IIM, Udaipur",
+            "area": "MBA (DEM)",
+            "score": "3.42/4",
+            "startDate": "2022-04",
+            "endDate": "2023-03"
+        },
+        {
+            "institution": "VJTI, Mumbai",
+            "area": "B.Tech (Eletronics Engineering)",
+            "score": "7.88/10",
+            "startDate": "2014-07",
+            "endDate": "2018-06"
+        }
+    ],
+    "skills": {
+        "languagesAndSoftwares": [
+            "Python",
+            "Javascript",
+            "Matillion",
+            "IBM Apptio"
+        ],
+        "frameworksAndLibraries": [
+            "FastAPI",
+            "Flask",
+            "Pandas",
+            "Numpy",
+            "Matplotlib",
+            "Plotly",
+            "Vue",
+            "Nuxt"
+        ],
+        "sdlc": [
+            "Agile",
+            "DevOps",
+            "Git",
+            "Docker",
+            "CI/CD",
+            "Jira"
+        ],
+        "cloudServices": [
+            "S3",
+            "Redshift",
+            "RDS",
+            "EC2",
+            "Google Cloud Functions",
+            "AWS Lambda",
+            "AWS Lakehouse"
+        ]
+    }
+}

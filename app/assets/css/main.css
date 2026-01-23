@@ -1,0 +1,151 @@
+/* Global CSS Variables & Reset */
+:root {
+  /* Color Palette - Dark Premium */
+  --bg-primary: #ffffff;
+  --bg-secondary: #121212;
+  --text-primary: #ffffff;
+  --text-secondary: #a3a3a3;
+  --accent-color: #3b82f6;
+  /* Subtle blue accent, can be changed */
+  --glass-bg: rgba(255, 255, 255, 0.05);
+  --glass-border: rgba(255, 255, 255, 0.1);
+  --glass-blur: 10px;
+
+  /* Typography */
+  --font-sans: 'Montserrat', sans-serif;
+  --font-display: 'Playfair Display', serif;
+  /* Replaces serif for headings */
+
+  /* Spacing */
+  --spacing-xs: 0.5rem;
+  --spacing-sm: 1rem;
+  --spacing-md: 2rem;
+  --spacing-lg: 4rem;
+  --spacing-xl: 8rem;
+
+  /* Layout */
+  --container-width: 1200px;
+  --nav-height: 64px;
+  /* Reduced from 80px */
+
+  /* Light Theme Variables */
+  --bg-light: #ffffff;
+  --text-inverse: #0a0a0a;
+}
+
+.bg-white {
+  background-color: var(--bg-light);
+  color: var(--text-inverse);
+}
+
+.bg-white .subtitle,
+.bg-white .job-details li {
+  color: #555;
+}
+
+.bg-white h1,
+.bg-white h2,
+.bg-white h3 {
+  color: var(--text-inverse);
+}
+
+/* Base Styles */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  line-height: 1.2;
+  color: var(--text-primary);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: opacity 0.3s ease;
+}
+
+a:hover {
+  opacity: 0.8;
+}
+
+/* Utility Classes */
+.container {
+  width: 100%;
+  max-width: 100%;
+  /* Full width as requested */
+  margin: 0 auto;
+  padding: 0 4rem;
+  /* Generous padding on sides */
+}
+
+.glass {
+  background: var(--glass-bg);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  border: 1px solid var(--glass-border);
+}
+
+.title-large {
+  font-size: clamp(3rem, 5vw, 6rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.section {
+  padding: var(--spacing-lg) 0;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-secondary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--glass-border);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-secondary);
+}
+
+/* Animations */
+.fade-in {
+  opacity: 0;
+  animation: fadeIn 1s ease forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
