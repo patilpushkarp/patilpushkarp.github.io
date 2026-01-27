@@ -17,6 +17,11 @@ export interface Stats {
     industries: string;
 }
 
+export interface Purpose {
+    headline: string;
+    description: string;
+}
+
 export interface Basics {
     name: string;
     label: string;
@@ -26,6 +31,7 @@ export interface Basics {
     location: Location;
     profiles: Profile[];
     stats?: Stats;
+    purpose?: Purpose;
 }
 
 export interface Category {
@@ -72,8 +78,13 @@ export interface ResumeData {
     skills: Skills;
 }
 
+import resumeData from '../data/resume.json';
+
 export const useResume = () => {
-    const { data: resume, error } = useFetch<ResumeData>('/resume.json?v=' + new Date().getTime());
+    // We import data directly, so no network redundancy or router issues
+    // Wrap in ref to maintain reactivity interface if needed, although it's static data
+    const resume = ref<ResumeData>(resumeData as unknown as ResumeData);
+    const error = ref(null);
 
     return {
         resume,

@@ -1,5 +1,7 @@
 <script setup lang="ts">
 const isDark = ref(false) // Default to light theme since home page is white
+const isAtTop = ref(true)
+const isLogoHovered = ref(false)
 const route = useRoute()
 
 onMounted(() => {
@@ -8,6 +10,9 @@ onMounted(() => {
         // Reverse array to check nested (inner) sections before their parents
         const sections = Array.from(document.querySelectorAll('section, header, footer, div[data-theme]')).reverse()
         let currentTheme = 'light' // Default for white background
+
+        // Check scroll position for logo
+        isAtTop.value = window.scrollY < 20
 
         // Check which element is at the navbar position (offset by a bit)
         const checkPoint = window.scrollY + 50
@@ -62,8 +67,8 @@ onMounted(() => {
         <div class="nav-container">
             <!-- Left: Logo -->
             <div class="nav-left">
-                <NuxtLink to="/" class="logo">
-                    Pushkar.
+                <NuxtLink to="/" class="logo" @mouseenter="isLogoHovered = true" @mouseleave="isLogoHovered = false">
+                    P<span class="logo-suffix" :class="{ 'collapsed': !isAtTop && !isLogoHovered }">ushkar</span>
                 </NuxtLink>
             </div>
 
@@ -78,7 +83,7 @@ onMounted(() => {
 
             <!-- Right: Actions -->
             <div class="nav-right">
-                <a href="/resume.pdf" target="_blank" class="action-btn">Resume</a>
+                <a href="/Pushkar_Patil_resume.pdf" target="_blank" class="action-btn">Resume</a>
                 <NuxtLink to="/contact" class="action-btn">Contact</NuxtLink>
             </div>
 
@@ -212,11 +217,32 @@ onMounted(() => {
 }
 
 .logo {
-    font-family: var(--font-display);
-    font-size: 1.5rem;
-    font-weight: 700;
+    font-family: 'Monsieur La Doulaise', cursive;
+    font-size: 2.5rem;
+    font-weight: 400;
     text-decoration: none;
     transition: color 0.3s ease;
+    min-width: 40px;
+    display: inline-flex;
+    /* Changed from inline-block to keep baseline aligned */
+    align-items: baseline;
+    /* Ensure text baseline alignment */
+    /* text-align: center; Removed to behave like normal text */
+}
+
+.logo-suffix {
+    display: inline-block;
+    max-width: 200px;
+    /* Arbitrary large enough width */
+    opacity: 1;
+    overflow: hidden;
+    transition: max-width 0.5s ease, opacity 0.5s ease;
+    white-space: nowrap;
+}
+
+.logo-suffix.collapsed {
+    max-width: 0;
+    opacity: 0;
 }
 
 /* Center */

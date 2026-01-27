@@ -3,70 +3,94 @@
         <div class="container section">
             <!-- Header -->
             <div class="header fade-in-up">
-                <h1 class="title-large">About <span class="italic-serif">Me</span>.</h1>
-                <div class="pill-badge">Story & Skills</div>
+                <h1 class="title-large">Hey, I am <span class="italic-serif">Pushkar</span>.</h1>
+                <div class="pill-badge">Story & Background</div>
             </div>
 
-            <!-- Bio Section -->
-            <div class="content-grid">
-                <div class="bio-column fade-in-up" style="animation-delay: 0.1s">
-                    <h2 class="section-title">Who I <span class="italic-serif">Am</span></h2>
-                    <div class="bio-text">
-                        <p>{{ resume?.basics?.summary }}</p>
-                    </div>
+            <!-- Profile Image -->
+            <div class="profile-image-container fade-in-up" style="animation-delay: 0.1s">
+                <img src="/profile.png" alt="Pushkar Patil in the Himalayas" class="profile-image" />
+            </div>
 
-                    <div class="contact-card">
-                        <h3 class="card-title">Get in Touch</h3>
-                        <div class="contact-item">
-                            <span class="label">Email</span>
-                            <span class="value">{{ resume?.basics?.email }}</span>
+
+
+            <!-- Main Content Flow -->
+            <div class="content-flow">
+
+                <!-- 1. Bio Section (Who I Am) -->
+                <div class="bio-section fade-in-up" style="animation-delay: 0.1s">
+
+                    <div class="who-i-am-grid">
+                        <!-- Left: Narrative -->
+                        <div class="bio-text">
+                            <p v-for="(para, index) in resume?.basics?.about_me" :key="index">
+                                {{ para }}
+                            </p>
                         </div>
-                        <div class="contact-item">
-                            <span class="label">Phone</span>
-                            <span class="value">{{ resume?.basics?.phone }}</span>
-                        </div>
-                        <div class="contact-item">
-                            <span class="label">Location</span>
-                            <span class="value">{{ resume?.basics?.location?.city }}, {{
-                                resume?.basics?.location?.country }}</span>
+
+                        <!-- Right: Connect Cards -->
+                        <div class="connect-cards">
+                            <!-- Email -->
+                            <a :href="`mailto:${resume?.basics?.email}`" class="connect-card">
+                                <div class="card-dot blue"></div>
+                                <div class="card-info">
+                                    <span class="card-title">Email</span>
+                                    <span class="card-desc">Drop me a line</span>
+                                </div>
+                                <div class="card-arrow">↗</div>
+                            </a>
+
+                            <!-- LinkedIn -->
+                            <a v-if="resume?.basics?.profiles?.find(p => p.network === 'LinkedIn')"
+                                :href="resume?.basics?.profiles?.find(p => p.network === 'LinkedIn')?.url"
+                                target="_blank" class="connect-card">
+                                <div class="card-dot orange"></div>
+                                <div class="card-info">
+                                    <span class="card-title">LinkedIn</span>
+                                    <span class="card-desc">Let's connect</span>
+                                </div>
+                                <div class="card-arrow">↗</div>
+                            </a>
+
+                            <!-- GitHub -->
+                            <a v-if="resume?.basics?.profiles?.find(p => p.network === 'Github')"
+                                :href="resume?.basics?.profiles?.find(p => p.network === 'Github')?.url" target="_blank"
+                                class="connect-card">
+                                <div class="card-dot black"></div>
+                                <div class="card-info">
+                                    <span class="card-title">GitHub</span>
+                                    <span class="card-desc">Check my code</span>
+                                </div>
+                                <div class="card-arrow">↗</div>
+                            </a>
                         </div>
                     </div>
                 </div>
 
-                <!-- Skills Section -->
-                <div class="skills-column fade-in-up" style="animation-delay: 0.2s" v-if="resume?.skills">
-                    <h2 class="section-title">Technical <span class="italic-serif">Expertise</span></h2>
-
-                    <div class="skill-group">
-                        <h3 class="group-title">Languages & Softwares</h3>
-                        <div class="skill-tags">
-                            <span v-for="skill in resume.skills.languagesAndSoftwares" :key="skill" class="skill-pill">
-                                {{ skill }}
-                            </span>
-                        </div>
-                    </div>
-
-                    <div class="skill-group">
-                        <h3 class="group-title">Frameworks & Libraries</h3>
-                        <div class="skill-tags">
-                            <span v-for="skill in resume.skills.frameworksAndLibraries" :key="skill" class="skill-pill">
-                                {{ skill }}
-                            </span>
-                        </div>
-                    </div>
-
-                    <div class="skill-group">
-                        <h3 class="group-title">Cloud & DevOps</h3>
-                        <div class="skill-tags">
-                            <span v-for="skill in resume.skills.cloudServices" :key="skill" class="skill-pill">
-                                {{ skill }}
-                            </span>
-                            <span v-for="skill in resume.skills.sdlc" :key="skill" class="skill-pill">
-                                {{ skill }}
-                            </span>
+                <!-- 2. Education Section (Sticky Cards) -->
+                <div class="education-section" style="animation-delay: 0.2s">
+                    <h2 class="section-title">Education <span class="italic-serif">& Alma Mater</span></h2>
+                    <div class="education-stack">
+                        <div v-for="(edu, index) in resume?.education" :key="index" class="education-card"
+                            :style="getCardStyle(index, edu.institution)">
+                            <div class="card-content">
+                                <div class="edu-header">
+                                    <h3 class="edu-institution">{{ edu.institution }}</h3>
+                                    <div class="edu-date">{{ edu.startDate }} — {{ edu.endDate }}</div>
+                                </div>
+                                <div class="edu-body">
+                                    <div class="edu-degree">{{ edu.area }}</div>
+                                    <div class="edu-score" v-if="edu.score">Score: {{ edu.score }}</div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
+
+
+
+                <!-- BOTTOM CONTACT SECTION REMOVED as per new design -->
+
             </div>
         </div>
     </div>
@@ -74,6 +98,31 @@
 
 <script setup lang="ts">
 const { resume } = useResume();
+
+const getSchoolImage = (institution: string) => {
+    if (institution.includes('IIM')) return '/schools/iim.jpg';
+    if (institution.includes('VJTI')) return '/schools/vjti.jpg';
+    return '';
+};
+
+// const getCardStyle = (index: number, institution: string) => {
+//     // Reduced gap: ~120px (heading height ~80px + padding/border ~40px)
+//     const topValue = 150 + (index * 120);
+//     return {
+//         top: `${topValue}px`,
+//         zIndex: index + 1,
+//         backgroundImage: `linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url(${getSchoolImage(institution)})`
+//     };
+// };
+const getCardStyle = (index: number, institution: string) => {
+    const headerHeight = 120;  // Your .edu-header height
+    return {
+        top: `${150 + (index * headerHeight)}px`,  // Each card sticks below previous header
+        zIndex: index + 1,
+        backgroundImage: `linear-gradient(rgba(0,0,0,0.25), rgba(0,0,0,0.25)), url(${getSchoolImage(institution)})`
+    };
+};
+
 </script>
 
 <style scoped>
@@ -91,16 +140,20 @@ const { resume } = useResume();
     position: relative;
     z-index: 1;
     width: 100%;
-    max-width: 1400px;
+    /* max-width: 1000px; Removed to allow 80vw cards */
     margin: 0 auto;
     padding: 0 2rem;
 }
 
 /* Header */
 .header {
-    margin-bottom: 4rem;
+    margin-bottom: 6rem;
     padding-top: 4rem;
     text-align: left;
+    max-width: 1000px;
+    /* Constrain header/bio text, not the cards */
+    margin-left: 20rem;
+    margin-right: auto;
 }
 
 .title-large {
@@ -130,119 +183,207 @@ const { resume } = useResume();
     letter-spacing: 0.02em;
 }
 
-/* Content Layout */
-.content-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 4rem;
-    margin-top: 2rem;
+/* Content Flow */
+.content-flow {
+    display: flex;
+    flex-direction: column;
+    gap: 8rem;
+    /* Large gap between major sections */
 }
 
-.section-title {
-    font-family: var(--font-sans);
-    font-size: 2.5rem;
-    color: #000;
-    margin-bottom: 2rem;
-    font-weight: 400;
+/* Profile Image */
+.profile-image-container {
+    width: 90%;
+    aspect-ratio: 16/9;
+    margin: 0 auto 6rem auto;
+    border-radius: 1.5rem;
+    overflow: hidden;
+    position: relative;
 }
+
+.profile-image {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    object-position: center bottom;
+    /* Anchor to bottom to keep subject visible if standing */
+}
+
+
 
 /* Bio Styles */
+.bio-section {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.who-i-am-grid {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: 6rem;
+    align-items: start;
+}
+
 .bio-text p {
     font-family: var(--font-sans);
-    font-size: 1.1rem;
+    font-size: 1.25rem;
     line-height: 1.8;
     color: #444;
     margin-bottom: 2rem;
 }
 
-.contact-card {
-    background: #F8F5F0;
-    /* Cream/Beige background consistent with Home stats */
-    padding: 2rem;
-    border-radius: 1.5rem;
-    margin-top: 3rem;
+/* Connect Cards */
+.connect-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.connect-card {
+    display: flex;
+    align-items: center;
+    background: #fff;
+    padding: 1.5rem 2rem;
+    border-radius: 12px;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    text-decoration: none;
+    transition: all 0.2s ease;
+    cursor: pointer;
+}
+
+.connect-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+}
+
+.card-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    margin-right: 1.5rem;
+}
+
+.card-dot.blue {
+    background-color: #3b82f6;
+}
+
+.card-dot.orange {
+    background-color: #f97316;
+}
+
+.card-dot.black {
+    background-color: #000;
+}
+
+.card-dot.green {
+    background-color: #22c55e;
+}
+
+.card-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
 }
 
 .card-title {
-    font-family: var(--font-display);
-    font-size: 1.5rem;
-    margin-bottom: 1.5rem;
+    font-family: var(--font-sans);
+    font-size: 1.1rem;
+    font-weight: 500;
     color: #000;
 }
 
-.contact-item {
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 1.2rem;
-}
-
-.contact-item:last-child {
-    margin-bottom: 0;
-}
-
-.contact-item .label {
-    font-size: 0.85rem;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
+.card-desc {
+    font-family: var(--font-sans);
+    font-size: 0.9rem;
     color: #666;
-    margin-bottom: 0.3rem;
+    margin-top: 0.2rem;
 }
 
-.contact-item .value {
-    font-size: 1.1rem;
+.card-arrow {
+    font-size: 1.2rem;
+    color: #999;
+    transition: transform 0.2s ease;
+}
+
+.connect-card:hover .card-arrow {
+    transform: translate(4px, -4px);
     color: #000;
-    font-weight: 500;
 }
 
-/* Skills Styles */
-.skills-column {
+/* Education Stack */
+.education-stack {
+    position: relative;
+    height: 250vh;
+}
+
+.education-card {
+    position: sticky;
+    width: 80vw;
+    height: 70vh;
+    margin: 0 auto 16vh auto;
+    /* Less space = more body coverage */
+    background: #fbfbfb;
+    background-size: cover;
+    border-radius: 1.5rem;
+    padding: 3rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    color: #fff;
+}
+
+/* Hover effect */
+.education-card:hover {
+    transform: translateY(-5px);
+}
+
+.card-content {
     display: flex;
     flex-direction: column;
-    gap: 3rem;
+    gap: 1.5rem;
 }
 
-.skill-group {
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-    padding-bottom: 2rem;
+.edu-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 1rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
 }
 
-.skill-group:last-child {
-    border-bottom: none;
-    padding-bottom: 0;
+.edu-institution {
+    font-family: var(--font-display);
+    font-size: 2rem;
+    color: #fff;
+    margin: 0;
+    line-height: 1.2;
 }
 
-.group-title {
-    font-family: var(--font-sans);
-    font-size: 1.1rem;
-    font-weight: 500;
-    color: #000;
-    margin-bottom: 1.5rem;
+.edu-date {
+    font-family: var(--font-mono);
+    font-size: 0.9rem;
+    color: #eee;
     text-transform: uppercase;
     letter-spacing: 0.05em;
 }
 
-.skill-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.8rem;
-}
-
-.skill-pill {
+.edu-degree {
     font-family: var(--font-sans);
-    font-size: 0.95rem;
-    color: #333;
-    background: transparent;
-    border: 1px solid rgba(0, 0, 0, 0.15);
-    padding: 0.6rem 1.2rem;
-    border-radius: 100px;
-    transition: all 0.2s ease;
+    font-size: 1.3rem;
+    color: #ddd;
+    margin-bottom: 0.5rem;
 }
 
-.skill-pill:hover {
+.edu-score {
+    display: inline-block;
+    padding: 0.5rem 1rem;
     background: #000;
     color: #fff;
-    border-color: #000;
-    transform: translateY(-2px);
+    font-size: 0.9rem;
+    border-radius: 6px;
+    font-family: var(--font-mono);
 }
 
 /* Animation */
@@ -265,16 +406,22 @@ const { resume } = useResume();
 
 /* Responsive */
 @media (max-width: 1024px) {
-    .content-grid {
+    .who-i-am-grid {
         grid-template-columns: 1fr;
-        gap: 3rem;
+        gap: 4rem;
+    }
+
+    .connect-cards {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 1rem;
     }
 }
 
 @media (max-width: 768px) {
     .header {
         padding-top: 2rem;
-        margin-bottom: 3rem;
+        margin-bottom: 4rem;
     }
 
     .title-large {
@@ -283,6 +430,24 @@ const { resume } = useResume();
 
     .section-title {
         font-size: 2rem;
+    }
+
+    .bio-title {
+        font-size: 3rem;
+    }
+
+    .who-i-am-grid {
+        gap: 3rem;
+    }
+
+    .edu-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+
+    .education-card {
+        padding: 2rem;
     }
 }
 </style>

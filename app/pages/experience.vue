@@ -99,14 +99,18 @@ function checkMobile() {
 }
 
 .header {
+    height: 50vh;
     margin-bottom: 4rem;
-    padding-top: 4rem;
-    padding-left: 2rem;
+    padding-left: 10rem;
     padding-right: 2rem;
     text-align: left;
     max-width: 100%;
     margin-left: auto;
     margin-right: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
 }
 
 .title-large {

@@ -2,20 +2,25 @@
     <div class="page-home container">
         <!-- Hero Section -->
         <section class="hero-section" data-theme="light">
-            <div class="hero-content">
-                <h1 class="hero-title fade-in">
-                    Building the <span class="highlight">future</span> <br>
-                    with data & code.
-                </h1>
+            <div class="hero-container">
+                <div class="hero-content">
+                    <h1 class="hero-title fade-in">
+                        Building the <span class="highlight">future</span> <br>
+                        with data & code.
+                    </h1>
 
-                <p class="hero-subtitle fade-in" style="animation-delay: 0.2s">
-                    {{ resume?.basics?.label }} based in {{ resume?.basics?.location?.city }}. <br>
-                    Welcome to my digital garden.
-                </p>
+                    <p class="hero-subtitle fade-in" style="animation-delay: 0.2s">
+                        {{ resume?.basics?.label }} based in {{ resume?.basics?.location?.city }}. <br>
+                        Welcome to my digital garden.
+                    </p>
 
-                <div class="cta-group fade-in" style="animation-delay: 0.4s">
-                    <NuxtLink to="/projects" class="btn btn-primary">View Projects</NuxtLink>
-                    <NuxtLink to="/experience" class="btn btn-secondary">My Experience</NuxtLink>
+                    <div class="cta-group fade-in" style="animation-delay: 0.4s">
+                        <NuxtLink to="/projects" class="btn btn-primary">View Projects</NuxtLink>
+                        <NuxtLink to="/experience" class="btn btn-secondary">My Experience</NuxtLink>
+                    </div>
+                </div>
+                <div class="hero-image fade-in" style="animation-delay: 0.3s">
+                    <img src="/hero-image.png" alt="Work from home setup" />
                 </div>
             </div>
         </section>
@@ -42,44 +47,14 @@
             </div>
         </section>
 
-        <!-- Passion Section -->
+        <!-- Purpose Section -->
         <section class="content-section fade-in" style="animation-delay: 0.7s" data-theme="light">
             <div class="passion-layout">
                 <div class="passion-title">
-                    Driven by <span class="serif-italic">strategy</span>
+                    {{ resume?.basics?.purpose?.headline }}
                 </div>
                 <div class="passion-content">
-                    <p>{{ resume?.basics?.summary }}</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Highlights Section -->
-        <section class="content-section fade-in" style="animation-delay: 0.8s" data-theme="light">
-            <div class="grid-2">
-                <!-- Experience Gist -->
-                <div class="glass-card">
-                    <h2 class="section-title">Experience</h2>
-                    <div class="info-list">
-                        <div v-for="(job, index) in resume?.work?.slice(0, 2)" :key="index" class="info-item">
-                            <span class="item-role">{{ job.position }}</span>
-                            <span class="item-subtitle">{{ job.company }}</span>
-                            <span class="item-date">{{ job.startDate }} - {{ job.endDate }}</span>
-                        </div>
-                    </div>
-                    <NuxtLink to="/experience" class="view-all-link">View Full Experience &rarr;</NuxtLink>
-                </div>
-
-                <!-- Education Gist -->
-                <div class="glass-card">
-                    <h2 class="section-title">Education</h2>
-                    <div class="info-list">
-                        <div v-for="(edu, index) in resume?.education?.slice(0, 2)" :key="index" class="info-item">
-                            <span class="item-role">{{ edu.area }}</span>
-                            <span class="item-subtitle">{{ edu.institution }}</span>
-                            <span class="item-date">{{ edu.startDate }} - {{ edu.endDate }}</span>
-                        </div>
-                    </div>
+                    <p>{{ resume?.basics?.purpose?.description }}</p>
                 </div>
             </div>
         </section>
@@ -106,13 +81,39 @@ const { resume } = useResume();
     min-height: 70vh;
     display: flex;
     align-items: center;
-    justify-content: flex-start;
+    justify-content: center;
+}
+
+.hero-container {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 4rem;
+    align-items: center;
+    width: 100%;
 }
 
 .hero-content {
-    max-width: 900px;
     text-align: left;
     padding: 2rem 0;
+}
+
+.hero-image {
+    width: 100%;
+    border-radius: 2rem;
+    overflow: hidden;
+    /* transform: rotate(2deg); */
+    transition: transform 0.3s ease;
+}
+
+.hero-image:hover {
+    transform: rotate(0deg) scale(1.02);
+}
+
+.hero-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 2rem;
 }
 
 .hero-title {
@@ -126,19 +127,37 @@ const { resume } = useResume();
 
 .highlight {
     display: inline-block;
-    border: 1px solid var(--accent-color);
-    border-radius: 100px;
     padding: 0 0.4em;
     line-height: 1;
-    color: var(--accent-color);
     font-weight: 400;
     margin: 0 0.1em;
     position: relative;
     top: 0.1em;
+
+    /* Gradient Text */
+    background: var(--accent-gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
 }
 
-.highlight::after {
-    content: none;
+.highlight::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 100px;
+    padding: 1px;
+    background: var(--accent-gradient);
+    -webkit-mask:
+        linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask:
+        linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0);
+    mask-composite: exclude;
+    pointer-events: none;
 }
 
 .hero-subtitle {
@@ -193,8 +212,10 @@ const { resume } = useResume();
 }
 
 .btn-secondary:hover {
-    color: var(--accent-color);
-    background: transparent;
+    background: var(--accent-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
 }
 
 /* Stats Section */
@@ -236,7 +257,7 @@ const { resume } = useResume();
     max-width: 80%;
 }
 
-/* Passion Section */
+/* Passion Section (Now Purpose) */
 .passion-layout {
     display: flex;
     flex-direction: column;
@@ -246,16 +267,10 @@ const { resume } = useResume();
 }
 
 .passion-title {
-    font-size: clamp(3rem, 6vw, 5rem);
+    font-size: clamp(3rem, 6vw, 4rem);
     /* Increased size for impact */
     line-height: 1.1;
     color: #0a0a0a;
-    font-weight: 300;
-}
-
-.serif-italic {
-    font-family: 'Playfair Display', serif;
-    font-style: italic;
     font-weight: 400;
 }
 
@@ -278,78 +293,16 @@ const { resume } = useResume();
     padding: 2rem 0;
 }
 
-.section-title {
-    font-size: 2rem;
-    margin-bottom: 2rem;
-    font-weight: 600;
-    letter-spacing: -0.02em;
-    color: #0a0a0a;
-}
-
-/* Glass Cards */
-.glass-card {
-    background: rgba(0, 0, 0, 0.02);
-    border: 1px solid rgba(0, 0, 0, 0.05);
-    backdrop-filter: blur(10px);
-    border-radius: 1rem;
-    padding: 2rem;
-    transition: transform 0.3s ease, background 0.3s ease;
-}
-
-.glass-card:hover {
-    background: rgba(0, 0, 0, 0.04);
-    transform: translateY(-2px);
-}
-
-/* Grid Layouts */
-.grid-2 {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 2rem;
-}
-
-.info-list {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-}
-
-.info-item {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-}
-
-.item-role {
-    font-size: 1.1rem;
-    color: #0a0a0a;
-    font-weight: 500;
-}
-
-.item-subtitle {
-    font-size: 0.9rem;
-    color: #666666;
-}
-
-.item-date {
-    font-size: 0.8rem;
-    color: #888888;
-}
-
-.view-all-link {
-    display: inline-block;
-    margin-top: 1rem;
-    color: var(--accent-color);
-    text-decoration: none;
-    font-size: 0.9rem;
-    transition: opacity 0.3s;
-}
-
-.view-all-link:hover {
-    opacity: 0.8;
-}
-
 @media (max-width: 768px) {
+    .hero-container {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .hero-image {
+        order: -1;
+    }
+
     .hero-content {
         text-align: center;
     }
@@ -365,10 +318,6 @@ const { resume } = useResume();
     .passion-layout {
         grid-template-columns: 1fr;
         gap: 2rem;
-    }
-
-    .grid-2 {
-        grid-template-columns: 1fr;
     }
 
     .hero-title {

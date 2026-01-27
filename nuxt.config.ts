@@ -11,7 +11,8 @@ export default defineNuxtConfig({
   fonts: {
     families: [
       { name: 'Playfair Display', provider: 'google', weights: [400, 500, 600, 700, 800, 900] },
-      { name: 'Montserrat', provider: 'google', weights: [100, 200, 300, 400, 500, 600, 700, 800, 900] }
+      { name: 'Montserrat', provider: 'google', weights: [100, 200, 300, 400, 500, 600, 700, 800, 900] },
+      { name: 'Monsieur La Doulaise', provider: 'google', weights: [400] }
     ]
   },
   devtools: { enabled: true },

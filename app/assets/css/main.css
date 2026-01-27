@@ -7,6 +7,7 @@
   --text-secondary: #a3a3a3;
   --accent-color: #3b82f6;
   /* Subtle blue accent, can be changed */
+  --accent-gradient: linear-gradient(135deg, #3b82f6 0%, #ec4899 100%);
   --glass-bg: rgba(255, 255, 255, 0.05);
   --glass-border: rgba(255, 255, 255, 0.1);
   --glass-blur: 10px;
@@ -62,7 +63,6 @@ body {
   font-family: var(--font-sans);
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
-  overflow-x: hidden;
 }
 
 h1,
