@@ -2,15 +2,15 @@
     <div class="page-projects" data-theme="light">
         <div class="container section">
             <!-- Header -->
-            <div class="header fade-in-up">
-                <h1 class="title-large">Selected <span class="italic-serif">Works</span>.</h1>
-                <div class="pill-badge">Portfolio</div>
+            <div class="header">
+                <h1 class="title-large blur-load">Selected <span class="italic-serif">Works</span>.</h1>
+                <div class="pill-badge blur-load delay-100">Portfolio</div>
             </div>
 
             <!-- Projects Grid -->
             <div class="projects-grid" v-if="resume?.projects">
-                <div class="project-card fade-in-up" v-for="(project, index) in resume.projects" :key="index"
-                    :style="{ animationDelay: `${index * 0.1}s` }">
+                <div class="project-card blur-load" v-for="(project, index) in resume.projects" :key="index"
+                    :style="{ transitionDelay: `${index * 100}ms` }">
                     <div class="card-content">
                         <div class="project-header">
                             <h2 class="project-title">{{ project.name }}</h2>
@@ -167,22 +167,7 @@ const { resume } = useResume();
 }
 
 /* Animation */
-.fade-in-up {
-    opacity: 0;
-    animation: fadeInUp 0.8s ease forwards;
-}
 
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
 
 /* Responsive */
 @media (max-width: 1024px) {

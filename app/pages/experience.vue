@@ -3,14 +3,14 @@
 
         <div class="container section">
             <!-- Header -->
-            <div class="header fade-in-up">
-                <h1 class="title-large">Building <span class="italic-serif">digital products</span>.</h1>
-                <div class="pill-badge">Professional Journey</div>
+            <div class="header">
+                <h1 class="title-large blur-load">Building <span class="italic-serif">digital products</span>.</h1>
+                <div class="pill-badge blur-load delay-100">Professional Journey</div>
             </div>
 
             <!-- Experience List -->
             <div class="experience-list" v-if="resume?.work">
-                <section class="full-width-card fade-in-up" v-for="(job, index) in resume.work" :key="index">
+                <section class="full-width-card blur-load" v-for="(job, index) in resume.work" :key="index">
 
                     <div class="card-header">
                         <div class="header-content">
@@ -35,10 +35,11 @@
             </div>
 
             <!-- Skills Section -->
-            <div class="skills-section fade-in-up" v-if="resume?.skills">
-                <h2 class="section-title">Technical <span class="italic-serif">Arsenal</span></h2>
+            <div class="skills-section" v-if="resume?.skills">
+                <h2 class="section-title blur-load">Technical <span class="italic-serif">Arsenal</span></h2>
                 <div class="skills-grid">
-                    <div class="skill-card" v-for="(category, index) in skillCategories" :key="index">
+                    <div class="skill-card blur-load" v-for="(category, index) in skillCategories" :key="index"
+                        :style="{ transitionDelay: `${index * 100}ms` }">
                         <h3 class="skill-title">{{ category.title }}</h3>
                         <div class="skill-tags">
                             <span class="skill-pill" v-for="skill in category.items" :key="skill">{{ skill }}</span>
@@ -287,24 +288,6 @@ function checkMobile() {
 
 .category-items li::before {
     display: none;
-}
-
-/* Animation */
-.fade-in-up {
-    opacity: 0;
-    animation: fadeInUp 0.8s ease forwards;
-}
-
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
 }
 
 /* Mobile Adjustments */

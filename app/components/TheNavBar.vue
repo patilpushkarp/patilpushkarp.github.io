@@ -259,9 +259,9 @@ onMounted(() => {
 
 .glass-pill {
     border-radius: 100px;
-    padding: 0.8rem 3rem;
+    padding: 0.3rem 3rem 0.6rem;
     display: flex;
-    gap: 7rem;
+    gap: 12rem;
     align-items: center;
     transition: all 0.3s ease;
 }

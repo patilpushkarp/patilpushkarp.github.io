@@ -1,63 +1,65 @@
 <template>
     <div class="page-resume container section" data-theme="dark">
 
-        <div class="resume-actions fade-in">
-            <h1 class="title-large">Resume.</h1>
-            <!-- Placeholder for PDF Download functionality -->
-            <!-- <button class="btn btn-primary">Download PDF</button> -->
-        </div>
+        <div class="resume-page container" data-theme="light">
+            <div class="resume-actions">
+                <a :href="resumePdfLink" download class="download-btn">
+                    <span class="icon">⬇</span> Download PDF
+                </a>
+            </div>
 
-        <div class="resume-paper fade-in" style="animation-delay: 0.2s" v-if="resume" data-theme="light">
-
-            <header class="resume-header">
-                <h1>{{ resume.basics.name }}</h1>
-                <h2>{{ resume.basics.label }}</h2>
-                <div class="contact-details">
-                    <span>{{ resume.basics.email }}</span>
-                    <span>{{ resume.basics.phone }}</span>
-                    <span>{{ resume.basics.location.city }}, {{ resume.basics.location.country }}</span>
-                </div>
-            </header>
-
-            <section class="resume-section">
-                <h3>Summary</h3>
-                <p>{{ resume.basics.summary }}</p>
-            </section>
-
-            <section class="resume-section">
-                <h3>Education</h3>
-                <div v-for="(edu, idx) in resume.education" :key="idx" class="resume-item">
-                    <div class="item-header">
-                        <h4>{{ edu.institution }}</h4>
-                        <span>{{ edu.startDate }} - {{ edu.endDate }}</span>
+            <div class="resume-paper blur-load" v-if="resume" data-theme="light">
+                <!-- Header -->
+                <header class="resume-header">
+                    <h1 class="name">{{ resume.basics.name }}</h1>
+                    <p class="role">{{ resume.basics.label }}</p>
+                    <div class="contact-details">
+                        <span>{{ resume.basics.email }}</span>
+                        <span>{{ resume.basics.phone }}</span>
+                        <span>{{ resume.basics.location.city }}, {{ resume.basics.location.country }}</span>
                     </div>
-                    <p>{{ edu.area }}</p>
-                    <small>Score: {{ edu.score }}</small>
-                </div>
-            </section>
+                </header>
 
-            <section class="resume-section">
-                <h3>Experience</h3>
-                <div v-for="(job, idx) in resume.work" :key="idx" class="resume-item">
-                    <div class="item-header">
-                        <h4>{{ job.company }} - {{ job.position }}</h4>
-                        <span>{{ job.startDate }} - {{ job.endDate }}</span>
+                <section class="resume-section blur-load delay-100">
+                    <h3>Summary</h3>
+                    <p>{{ resume.basics.summary }}</p>
+                </section>
+
+                <section class="resume-section blur-load delay-200">
+                    <h3>Education</h3>
+                    <div v-for="(edu, idx) in resume.education" :key="idx" class="resume-item">
+                        <div class="item-header">
+                            <h4>{{ edu.institution }}</h4>
+                            <span>{{ edu.startDate }} - {{ edu.endDate }}</span>
+                        </div>
+                        <p>{{ edu.area }}</p>
+                        <small>Score: {{ edu.score }}</small>
                     </div>
-                    <ul>
-                        <li v-for="(detail, i) in job.highlights" :key="i">{{ detail }}</li>
-                    </ul>
-                </div>
-            </section>
+                </section>
 
-            <section class="resume-section">
-                <h3>Skills</h3>
-                <div class="skills-list">
-                    <p><strong>Languages:</strong> {{ resume.skills.languagesAndSoftwares.join(', ') }}</p>
-                    <p><strong>Frameworks:</strong> {{ resume.skills.frameworksAndLibraries.join(', ') }}</p>
-                    <p><strong>Cloud:</strong> {{ resume.skills.cloudServices.join(', ') }}</p>
-                </div>
-            </section>
+                <section class="resume-section blur-load delay-300">
+                    <h3>Experience</h3>
+                    <div v-for="(job, idx) in resume.work" :key="idx" class="resume-item">
+                        <div class="item-header">
+                            <h4>{{ job.company }} - {{ job.position }}</h4>
+                            <span>{{ job.startDate }} - {{ job.endDate }}</span>
+                        </div>
+                        <ul>
+                            <li v-for="(detail, i) in job.highlights" :key="i">{{ detail }}</li>
+                        </ul>
+                    </div>
+                </section>
 
+                <section class="resume-section blur-load delay-400">
+                    <h3>Skills</h3>
+                    <div class="skills-list">
+                        <p><strong>Languages:</strong> {{ resume.skills.languagesAndSoftwares.join(', ') }}</p>
+                        <p><strong>Frameworks:</strong> {{ resume.skills.frameworksAndLibraries.join(', ') }}</p>
+                        <p><strong>Cloud:</strong> {{ resume.skills.cloudServices.join(', ') }}</p>
+                    </div>
+                </section>
+
+            </div>
         </div>
     </div>
 </template>

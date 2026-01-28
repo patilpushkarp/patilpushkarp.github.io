@@ -4,43 +4,44 @@
         <section class="hero-section" data-theme="light">
             <div class="hero-container">
                 <div class="hero-content">
-                    <h1 class="hero-title fade-in">
+                    <h1 class="hero-title blur-load">
                         Building the <span class="highlight">future</span> <br>
                         with data & code.
                     </h1>
 
-                    <p class="hero-subtitle fade-in" style="animation-delay: 0.2s">
+                    <p class="hero-subtitle blur-load delay-100">
                         {{ resume?.basics?.label }} based in {{ resume?.basics?.location?.city }}. <br>
                         Welcome to my digital garden.
                     </p>
 
-                    <div class="cta-group fade-in" style="animation-delay: 0.4s">
+                    <div class="cta-group blur-load delay-200">
                         <NuxtLink to="/projects" class="btn btn-primary">View Projects</NuxtLink>
                         <NuxtLink to="/experience" class="btn btn-secondary">My Experience</NuxtLink>
                     </div>
                 </div>
-                <div class="hero-image fade-in" style="animation-delay: 0.3s">
+                <!-- Hero Image -->
+                <div class="hero-image blur-load delay-300">
                     <img src="/hero-image.png" alt="Work from home setup" />
                 </div>
             </div>
         </section>
 
         <!-- Stats Section -->
-        <section class="content-section fade-in" style="animation-delay: 0.6s" data-theme="light">
+        <section class="content-section" style="animation-delay: 0.6s" data-theme="light">
             <div class="stats-grid">
-                <div class="stat-card">
+                <div class="stat-card blur-load delay-100">
                     <span class="stat-number">{{ resume?.basics?.stats?.age }}+</span>
                     <span class="stat-label">years old</span>
                 </div>
-                <div class="stat-card">
+                <div class="stat-card blur-load delay-200">
                     <span class="stat-number">{{ resume?.basics?.stats?.experience }}+</span>
                     <span class="stat-label">years experience creating digital products</span>
                 </div>
-                <div class="stat-card">
+                <div class="stat-card blur-load delay-300">
                     <span class="stat-number">{{ resume?.basics?.stats?.projects }}+</span>
                     <span class="stat-label">digital products launched since inception</span>
                 </div>
-                <div class="stat-card">
+                <div class="stat-card blur-load delay-400">
                     <span class="stat-number">{{ resume?.basics?.stats?.industries }}+</span>
                     <span class="stat-label">industries worked across</span>
                 </div>
@@ -48,12 +49,12 @@
         </section>
 
         <!-- Purpose Section -->
-        <section class="content-section fade-in" style="animation-delay: 0.7s" data-theme="light">
+        <section class="content-section" style="animation-delay: 0.7s" data-theme="light">
             <div class="passion-layout">
-                <div class="passion-title">
+                <div class="passion-title blur-load">
                     {{ resume?.basics?.purpose?.headline }}
                 </div>
-                <div class="passion-content">
+                <div class="passion-content blur-load delay-100">
                     <p>{{ resume?.basics?.purpose?.description }}</p>
                 </div>
             </div>

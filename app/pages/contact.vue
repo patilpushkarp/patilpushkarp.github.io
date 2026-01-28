@@ -3,10 +3,10 @@
         <div class="container section">
             <div class="contact-grid">
                 <!-- Left Column: Info -->
-                <div class="contact-info fade-in-up">
-                    <h1 class="title-large">Let’s talk!</h1>
+                <div class="contact-info">
+                    <h1 class="title-large blur-load">Let’s talk!</h1>
 
-                    <div class="contact-description">
+                    <div class="contact-description blur-load delay-100">
                         <p>
                             Tell me about your project and goals or send an email to
                             <br>
@@ -14,7 +14,7 @@
                         </p>
                     </div>
 
-                    <div class="social-section">
+                    <div class="social-section blur-load delay-200">
                         <p class="social-label">You can also find me at</p>
                         <div class="social-links-grid">
                             <a v-for="profile in socialProfiles" :key="profile.network" :href="profile.url"
@@ -26,7 +26,7 @@
                 </div>
 
                 <!-- Right Column: Image (Replaced Form) -->
-                <div class="image-wrapper fade-in-up" style="animation-delay: 0.1s">
+                <div class="image-wrapper blur-load delay-300">
                     <div class="image-container">
                         <!-- Generated image V4 (Black shirt, office window) -->
                         <img src="/contact-phone-v4.png" alt="Pushkar looking into phone" class="contact-image" />
@@ -165,24 +165,6 @@ const socialProfiles = computed(() => {
 .contact-image:hover {
     filter: grayscale(0%);
     /* Reveal color on hover */
-}
-
-/* Animations */
-.fade-in-up {
-    opacity: 0;
-    animation: fadeInUp 0.8s ease forwards;
-}
-
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
 }
 
 /* Responsive */

@@ -2,13 +2,13 @@
     <div class="page-about" data-theme="light">
         <div class="container section">
             <!-- Header -->
-            <div class="header fade-in-up">
-                <h1 class="title-large">Hey, I am <span class="italic-serif">Pushkar</span>.</h1>
-                <div class="pill-badge">Story & Background</div>
+            <div class="header">
+                <h1 class="title-large blur-load">Hey, I am <span class="italic-serif">Pushkar</span>.</h1>
+                <div class="pill-badge blur-load delay-100">Story & Background</div>
             </div>
 
             <!-- Profile Image -->
-            <div class="profile-image-container fade-in-up" style="animation-delay: 0.1s">
+            <div class="profile-image-container blur-load delay-200">
                 <img src="/profile.png" alt="Pushkar Patil in the Himalayas" class="profile-image" />
             </div>
 
@@ -18,11 +18,11 @@
             <div class="content-flow">
 
                 <!-- 1. Bio Section (Who I Am) -->
-                <div class="bio-section fade-in-up" style="animation-delay: 0.1s">
+                <div class="bio-section" style="animation-delay: 0.1s">
 
                     <div class="who-i-am-grid">
                         <!-- Left: Narrative -->
-                        <div class="bio-text">
+                        <div class="bio-text blur-load">
                             <p v-for="(para, index) in resume?.basics?.about_me" :key="index">
                                 {{ para }}
                             </p>
@@ -31,7 +31,7 @@
                         <!-- Right: Connect Cards -->
                         <div class="connect-cards">
                             <!-- Email -->
-                            <a :href="`mailto:${resume?.basics?.email}`" class="connect-card">
+                            <a :href="`mailto:${resume?.basics?.email}`" class="connect-card blur-load delay-100">
                                 <div class="card-dot blue"></div>
                                 <div class="card-info">
                                     <span class="card-title">Email</span>
@@ -43,7 +43,7 @@
                             <!-- LinkedIn -->
                             <a v-if="resume?.basics?.profiles?.find(p => p.network === 'LinkedIn')"
                                 :href="resume?.basics?.profiles?.find(p => p.network === 'LinkedIn')?.url"
-                                target="_blank" class="connect-card">
+                                target="_blank" class="connect-card blur-load delay-200">
                                 <div class="card-dot orange"></div>
                                 <div class="card-info">
                                     <span class="card-title">LinkedIn</span>
@@ -55,7 +55,7 @@
                             <!-- GitHub -->
                             <a v-if="resume?.basics?.profiles?.find(p => p.network === 'Github')"
                                 :href="resume?.basics?.profiles?.find(p => p.network === 'Github')?.url" target="_blank"
-                                class="connect-card">
+                                class="connect-card blur-load delay-300">
                                 <div class="card-dot black"></div>
                                 <div class="card-info">
                                     <span class="card-title">GitHub</span>
@@ -68,10 +68,10 @@
                 </div>
 
                 <!-- 2. Education Section (Sticky Cards) -->
-                <div class="education-section" style="animation-delay: 0.2s">
-                    <h2 class="section-title">Education <span class="italic-serif">& Alma Mater</span></h2>
+                <div class="education-section">
+                    <h2 class="section-title blur-load">Education <span class="italic-serif">& Alma Mater</span></h2>
                     <div class="education-stack">
-                        <div v-for="(edu, index) in resume?.education" :key="index" class="education-card"
+                        <div v-for="(edu, index) in resume?.education" :key="index" class="education-card blur-load"
                             :style="getCardStyle(index, edu.institution)">
                             <div class="card-content">
                                 <div class="edu-header">
@@ -387,22 +387,7 @@ const getCardStyle = (index: number, institution: string) => {
 }
 
 /* Animation */
-.fade-in-up {
-    opacity: 0;
-    animation: fadeInUp 0.8s ease forwards;
-}
 
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
 
 /* Responsive */
 @media (max-width: 1024px) {
